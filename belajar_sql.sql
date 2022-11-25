@@ -84,3 +84,54 @@ alter table barang
 add primary key(id);
 
 select * from barang where quantity = 100;
+
+
+/* ============================================================== */
+
+create table admin (
+	id		int not null auto_increment,
+    first_name	varchar(100) not null,
+    last_name	varchar(100) not null,
+    primary key(id)
+)engine = innodb;
+
+show tables;
+
+insert into admin(first_name, last_name)
+value 	('ammar', 'kurniawan'),
+		('gagad', 'nur'),
+        ('aji', 'pur');
+        
+select * from admin order by id;
+
+delete from admin where id = 3;
+
+insert into admin(first_name, last_name)
+value 	('ret', 'sukro');
+
+/* auto increment */
+select last_insert_id();
+
+/* string function */
+select id, first_name, length(first_name) as 'panjang_nama' from admin;
+
+/* date and time function */
+
+/* ================================================= */
+
+create table customers(
+	id			int not null auto_increment,
+    email		varchar(100) not null,
+    first_name	varchar(100) not null,
+    last_name	varchar(100) not null,
+    primary key(id),
+    unique key email_unique(email)
+)	engine = innoDb
+
+desc customers;
+show tables;
+
+insert into customers(email, first_name, last_name)
+value('aa@gmail.com', 'agaa', 'surya');
+
+select * from customers;
